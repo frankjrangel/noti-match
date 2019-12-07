@@ -25,6 +25,7 @@ async function store(req, res) {
         }
 
         console.log("Inserted 3 documents into the collection");
-        callback(result);
+        console.log(JSON.stringify(result))
+        res.end()
     });
 }
