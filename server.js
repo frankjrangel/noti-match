@@ -10,6 +10,10 @@ const client = new MongoClient(url, {useUnifiedTopology: true})
 const bodyParser = require("body-parser")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use((req, res, next) => {
+    res.header('content-type', 'application/json')
+    next()
+})
 
 const newsController = require('./newsController')
 
