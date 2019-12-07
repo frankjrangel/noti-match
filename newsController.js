@@ -15,6 +15,16 @@ async function get() {
 
 }
 
-async function store() {
-    
+async function store(req, res) {
+    const c = DB.collection('news')
+    c.insertMany([
+        {a : 1}, {a : 2}, {a : 3}
+    ], function(err, result) {
+        if (err) {
+            console.error(err)
+        }
+
+        console.log("Inserted 3 documents into the collection");
+        callback(result);
+    });
 }
